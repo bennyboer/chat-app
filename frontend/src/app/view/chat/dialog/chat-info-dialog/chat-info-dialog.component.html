@@ -1,0 +1,50 @@
+<div *ngIf="loaded">
+    <h2>Chat information: {{ chatName }}</h2>
+
+    <div>
+        <mat-form-field class="input-field">
+            <input matInput ngModel required name="name" #name="ngModel" [(ngModel)]="chatName">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <h3>Participants:</h3>
+
+        <div class="user-list-wrapper">
+            <ngx-simplebar>
+                <mat-nav-list class="user-nav">
+                    <ng-container *ngFor="let participant of participants">
+
+                        <mat-list-item>
+                            <span class="user-item">
+                                <span class="user-label">
+                                    <span class="user-avatar">
+                                        <ngx-avatar *ngIf="!hasImage(participant)" [name]="getUserName(participant)"
+                                                    size="40"
+                                                    bgColor="#778899"></ngx-avatar>
+                                        <ngx-avatar *ngIf="hasImage(participant)" [src]="getUserImage(participant)"
+                                                    size="40"></ngx-avatar>
+                                    </span>
+                                    <span>
+                                      {{ getUserName(participant) }}
+                                    </span>
+                                </span>
+                                <span *ngIf="hasUserDetails(participant.id)">
+                                    Status:&nbsp;<em>"{{ getUserDetails(participant.id).status }}"</em>
+                                </span>
+                            </span>
+                        </mat-list-item>
+
+                    </ng-container>
+                </mat-nav-list>
+            </ngx-simplebar>
+        </div>
+    </div>
+
+    <div>
+        <button mat-icon-button mat-raised-button color="primary" (click)="updateChat()">
+            <mat-icon>save</mat-icon>
+        </button>
+    </div>
+
+</div>

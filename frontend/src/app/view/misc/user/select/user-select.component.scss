@@ -1,0 +1,28 @@
+:host {
+    display: block;
+    border: 1px solid gray;
+    border-radius: 0.2em;
+    padding: 0.5em 0;
+}
+
+.user-search-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & > * {
+        margin: 0 0.2em;
+    }
+}
+
+.user-search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 0.5em;
+}
+
+.user-search-nav {
+    height: 300px;
+    overflow: auto;
+}

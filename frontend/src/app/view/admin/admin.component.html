@@ -1,0 +1,24 @@
+<mat-toolbar class="admin-toolbar">
+    <span>Administration</span>
+    <span class="toolbar-spacer"></span>
+
+    <button mat-stroked-button [routerLink]="['/admin']">
+        <mat-icon>home</mat-icon>
+        Overview
+    </button>
+
+    <button mat-stroked-button [routerLink]="['/admin', 'user']">
+        <mat-icon>account_box</mat-icon>
+        User management
+    </button>
+
+    <button mat-stroked-button [routerLink]="['/admin', 'resource']">
+        <mat-icon>memory</mat-icon>
+        Resource management
+    </button>
+
+</mat-toolbar>
+
+<div class="admin-content">
+    <router-outlet></router-outlet>
+</div>

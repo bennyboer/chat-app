@@ -1,0 +1,24 @@
+<ul class="resource-list" *ngIf="otherResources.length > 0">
+    <li class="resource-item" *ngFor="let item of otherResources">
+        <span class="resource-preview">
+            <img *ngIf="!!item.image" alt="resource-preview" class="resource-preview" [src]="item.image">
+            <span *ngIf="!item.image" class="resource-preview-placeholder"></span>
+        </span>
+        <span class="actions">
+            <button mat-icon-button [disabled]="!item.image" (click)="onShow(item)">
+                <mat-icon>fullscreen</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onDelete(item)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </span>
+        <span class="resource-name">
+            {{ item.info.originalName }}<br>
+            {{ timestampToDateStr(item.info.timestamp) }}
+        </span>
+    </li>
+</ul>
+
+<div class="placeholder" *ngIf="otherResources.length === 0">
+    You have no resources yet!
+</div>

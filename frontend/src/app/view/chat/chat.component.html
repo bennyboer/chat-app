@@ -1,0 +1,11 @@
+<mat-drawer-container [hasBackdrop]="screenWidth <= 840" autosize>
+
+    <mat-drawer class="chat-list-drawer" [mode]="screenWidth > 840 ? 'side' : 'over'"
+                [opened]="screenWidth > 840"
+                [disableClose]="screenWidth > 840">
+        <app-list-component></app-list-component>
+    </mat-drawer>
+
+    <app-timeline-component></app-timeline-component>
+
+</mat-drawer-container>

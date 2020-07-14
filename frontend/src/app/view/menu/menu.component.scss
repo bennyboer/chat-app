@@ -1,0 +1,50 @@
+:host {
+    display: block;
+    height: 100%;
+}
+
+.menu-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    text-align: center;
+}
+
+.top-nav {
+    margin-bottom: 1.0em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.middle-nav {
+
+    .mat-list-item {
+        font-size: 1.5em;
+    }
+
+    .mat-list-icon {
+        transform: scale(1.2);
+    }
+
+}
+
+.bottom-nav {
+    margin-top: 1.0em;
+}
+
+.avatar-container {
+    padding: 2.0em 2.0em 1.0em 2.0em;
+}
+
+.user-name-container {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 1.0em;
+}
+
+.logout-container {
+    padding: 2.0em;
+}

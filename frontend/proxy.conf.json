@@ -1,0 +1,15 @@
+{
+    "/api": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+    "/socket-registry/websocket": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "ws": true
+    },
+    "/sockjs-node": {
+        "target": "http://localhost:8080",
+        "secure": false
+    }
+}

@@ -1,0 +1,4 @@
+rootProject.name = 'chat'
+
+include ":frontend"
+project(":frontend").projectDir = file("../frontend")

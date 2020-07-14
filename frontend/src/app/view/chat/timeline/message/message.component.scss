@@ -1,0 +1,116 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0.5em;
+}
+
+.message-bubble-spacer {
+    flex: 1 1 auto;
+}
+
+.message-bubble {
+    flex: 0 0 auto;
+    position: relative;
+    border-radius: 0.2em;
+    padding: 0.2em 0.5em;
+    display: inline-block;
+    max-width: 70%;
+    margin-right: 2.0em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    &.other {
+        margin-right: 0;
+        margin-left: 2.0em;
+        left: 0;
+        right: unset;
+
+        &:after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 10px 20px 10px 0;
+            display: block;
+            width: 0;
+            z-index: 1;
+            margin-top: -10px;
+            left: -20px;
+            top: 50%;
+        }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 10px 0 10px 20px;
+        display: block;
+        width: 0;
+        z-index: 1;
+        margin-top: -10px;
+        right: -20px;
+        top: 50%;
+    }
+}
+
+.msg-name {
+    font-size: 0.9em;
+    opacity: 0.7;
+    text-align: left;
+}
+
+.msg-content {
+    padding: 0.3em 0;
+    font-size: 1.1em;
+}
+
+.msg-image-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+
+.msg-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.msg-date {
+    font-size: 0.8em;
+    text-align: right;
+    opacity: 0.7;
+}
+
+@mixin message-bubble-theme($theme) {
+    $background: map-get($theme, background);
+    $primary: map-get($theme, primary);
+
+    .message-bubble {
+        background-color: mat-color($primary, main);
+
+        &.other {
+            background-color: mat-color($background, card);
+
+            &:after {
+                border-color: transparent mat-color($background, card);
+            }
+        }
+
+        &:after {
+            border-color: transparent mat-color($primary, main);
+        }
+    }
+
+    .msg-name {
+        color: mat-color($primary, main-contrast);
+    }
+
+    .other {
+        .msg-name {
+            color: mat-color($background, contrast);
+        }
+    }
+}

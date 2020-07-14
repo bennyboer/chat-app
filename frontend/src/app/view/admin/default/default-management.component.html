@@ -1,0 +1,16 @@
+<div class="default-admin-content-layout">
+    <mat-icon style="transform: scale(5.0); padding: 3.0em;">settings</mat-icon>
+    <h1>Application Administration</h1>
+    <div class="nav-item">
+        <button mat-stroked-button [routerLink]="['/admin', 'user']">
+            <mat-icon>account_box</mat-icon>
+            User management
+        </button>
+    </div>
+    <div class="nav-item">
+        <button mat-stroked-button [routerLink]="['/admin', 'resource']">
+            <mat-icon>memory</mat-icon>
+            Resource management
+        </button>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<form class="login-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <h1>Login</h1>
+
+    <div>
+        <mat-form-field class="login-field" appearance="fill">
+            <input matInput
+                   ngModel
+                   required
+                   name="email"
+                   email
+                   #email="ngModel"
+                   [disabled]="isSigningIn()"
+                   placeholder="E-mail">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field class="login-field" appearance="fill">
+            <input matInput
+                   type="password"
+                   ngModel
+                   required
+                   name="password"
+                   #password="ngModel"
+                   [disabled]="isSigningIn()"
+                   placeholder="Password">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <button mat-raised-button [disabled]="isSigningIn()" type="submit" color="accent" style="width: 100%">
+            <mat-icon>lock_open</mat-icon>
+            Login
+        </button>
+    </div>
+
+    <div style="margin-top: 2.0em; border-top: 1px solid grey;">
+        <span><em>Not yet registered?</em>&nbsp;</span>
+        <button mat-button type="button" [routerLink]="['/signup']">
+            Sign up
+        </button>
+    </div>
+
+    <div style="padding: 1.0em 0">
+        <mat-slide-toggle mat-list-icon
+                          [checked]="isDarkMode"
+                          (change)="onThemeChange($event)">
+            <mat-icon class="icon-big">nights_stay</mat-icon>
+        </mat-slide-toggle>
+    </div>
+
+</form>

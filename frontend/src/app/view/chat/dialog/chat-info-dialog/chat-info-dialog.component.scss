@@ -1,0 +1,29 @@
+.user-avatar {
+    margin-right: 0.5em;
+}
+
+.user-list-wrapper {
+    position: relative;
+    height: 300px;
+    border: 1px solid slategray;
+    border-radius: 2px;
+
+    & > ngx-simplebar {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.user-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.user-label {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}

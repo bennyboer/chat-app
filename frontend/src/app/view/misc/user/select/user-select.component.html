@@ -1,0 +1,23 @@
+<div class="user-search-bar">
+    <mat-icon>search</mat-icon>
+    <mat-form-field style="margin-bottom: -1.0em; width: 300px">
+        <input matInput
+               placeholder="Search user..."
+               [ngModel]="searchValue"
+               (ngModelChange)="onSearchValueChange($event)">
+    </mat-form-field>
+</div>
+
+<div>
+    <mat-nav-list class="user-search-nav">
+        <mat-list-item *ngFor="let user of users"
+                       (click)="toggleSelection(user)">
+            <span class="user-search-item">
+                <mat-checkbox [checked]="isSelected(user)" [disabled]="true"></mat-checkbox>
+                <ngx-avatar *ngIf="!hasImage(user)" [name]="getUserName(user)" size="40" bgColor="#778899"></ngx-avatar>
+                <ngx-avatar *ngIf="hasImage(user)" [src]="getUserImage(user)" size="40"></ngx-avatar>
+                {{ user.firstName }} {{ user.lastName }}
+            </span>
+        </mat-list-item>
+    </mat-nav-list>
+</div>

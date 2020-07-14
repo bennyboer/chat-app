@@ -1,0 +1,16 @@
+:host {
+    display: block;
+    height: inherit;
+
+    & > mat-drawer-container {
+        height: inherit;
+    }
+}
+
+@mixin chat-component-theme($theme) {
+    $background: map-get($theme, background);
+
+    .chat-list-drawer {
+        background-color: mat-color($background, dimmed);
+    }
+}

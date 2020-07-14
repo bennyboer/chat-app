@@ -1,0 +1,55 @@
+<form class="edit-user-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <h1>Edit user</h1>
+
+    <div>
+        <mat-form-field appearance="outline">
+            <input matInput ngModel required email name="email" #email="ngModel"
+                   placeholder="E-mail">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline">
+            <input matInput ngModel required name="firstName" #firstName="ngModel"
+                   placeholder="First name">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline">
+            <input matInput ngModel name="lastName" #lastName="ngModel"
+                   placeholder="Last name">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline">
+            <input matInput ngModel type="password" name="password" #password="ngModel"
+                   placeholder="(Unchanged)">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Roles</mat-label>
+            <mat-select name="roles" ngModel #roles="ngModel" multiple>
+                <mat-option *ngFor="let r of availableRoles" [value]="r.id">{{ r.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+
+    <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 0.5em;">
+        <button mat-icon-button mat-raised-button type="button" [routerLink]="['..']">
+            <mat-icon>close</mat-icon>
+        </button>
+        <button mat-icon-button mat-raised-button color="warn" type="button" (click)="onDelete()">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button mat-raised-button color="primary" type="submit">
+            <mat-icon>done</mat-icon>
+        </button>
+    </div>
+
+</form>

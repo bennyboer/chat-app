@@ -1,0 +1,17 @@
+<mat-nav-list class="main-nav">
+    <a mat-list-item [routerLink]="'/profile'">
+        <mat-icon matListIcon>account_circle</mat-icon>
+        Profile
+    </a>
+    <a mat-list-item [routerLink]="'/chat'">
+        <mat-icon matListIcon>chat_bubble</mat-icon>
+        Chats
+    </a>
+
+    <ng-template [appHasRole]="'ROLE_ADMIN'">
+        <a mat-list-item [routerLink]="'/admin'">
+            <mat-icon matListIcon>settings</mat-icon>
+            Manage
+        </a>
+    </ng-template>
+</mat-nav-list>

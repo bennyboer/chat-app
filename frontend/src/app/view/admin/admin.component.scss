@@ -1,0 +1,26 @@
+:host {
+    display: flex;
+    flex-flow: column;
+    width: inherit;
+    height: inherit;
+}
+
+.admin-toolbar {
+    flex: 0 0 auto;
+
+    & > * {
+        margin: 0 0.5em;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.admin-content {
+    flex: 1 1 auto;
+}

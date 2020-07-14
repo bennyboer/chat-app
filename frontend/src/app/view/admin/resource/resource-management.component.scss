@@ -1,0 +1,25 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    height: 100%;
+}
+
+.resource-management-title {
+    flex: 0 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.0em 0.5em;
+    margin: 0;
+}
+
+.resource-management-content {
+    flex: 1 1 auto;
+    position: relative;
+}
+
+.resource-management-table {
+    width: 100%;
+}

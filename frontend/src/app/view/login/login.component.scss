@@ -1,0 +1,16 @@
+:host {
+    display: flex;
+    width: inherit;
+    height: inherit;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    text-align: center;
+}
+
+.login-field {
+    width: 100%;
+}

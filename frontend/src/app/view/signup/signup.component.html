@@ -1,0 +1,78 @@
+<form class="signup-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <h1>Signing up</h1>
+
+    <p>
+        Get to use the chat service!
+    </p>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <input matInput
+                   ngModel
+                   required
+                   email
+                   name="email"
+                   #email="ngModel"
+                   placeholder="E-Mail">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <input matInput
+                   ngModel
+                   required
+                   name="firstName"
+                   #firstName="ngModel"
+                   placeholder="First name">
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field appearance="fill">
+            <input matInput
+                   ngModel
+                   name="lastName"
+                   #lastName="ngModel"
+                   placeholder="Last name">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <input matInput
+                   type="password"
+                   ngModel
+                   required
+                   minlength="5"
+                   name="password"
+                   #password="ngModel"
+                   [appPasswordValidator]="form.controls['repeatedPassword']"
+                   placeholder="Password">
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field appearance="fill">
+            <input matInput
+                   type="password"
+                   ngModel
+                   required
+                   minlength="5"
+                   name="repeatedPassword"
+                   #repeatedPassword="ngModel"
+                   [appPasswordValidator]="form.controls['password']"
+                   placeholder="Password">
+            <mat-hint>Repeat password</mat-hint>
+        </mat-form-field>
+    </div>
+
+    <div class="controls">
+        <button mat-raised-button type="button" [routerLink]="['/']">
+            <mat-icon>close</mat-icon>
+            Cancel
+        </button>
+        <button mat-raised-button type="submit" color="accent">
+            <mat-icon>lock_open</mat-icon>
+            Sign up
+        </button>
+    </div>
+
+</form>

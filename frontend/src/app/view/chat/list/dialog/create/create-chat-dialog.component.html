@@ -1,0 +1,23 @@
+<form class="create-chat-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <h2>Create new chat</h2>
+
+    <div>
+        <h4>Choose Chat partner(s)</h4>
+        <app-user-select-component (selectionChanges)="onParticipantsChange($event)"></app-user-select-component>
+    </div>
+
+    <div>
+        <mat-form-field class="input-field">
+            <input matInput ngModel required name="name" #name="ngModel"
+                   placeholder="Name of the chat">
+        </mat-form-field>
+    </div>
+
+    <div style="text-align: right; margin-top: 0.5em;">
+        <button mat-icon-button mat-raised-button color="primary">
+            <mat-icon>done</mat-icon>
+        </button>
+    </div>
+
+</form>

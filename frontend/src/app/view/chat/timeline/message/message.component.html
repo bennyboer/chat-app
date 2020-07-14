@@ -1,0 +1,40 @@
+<div *ngIf="isAuthUser" class="message-bubble-spacer"></div>
+
+<ngx-avatar *ngIf="!isAuthUser && !hasImage(user.id)" [name]="getUserName(user)" size="50"
+            bgColor="#778899"></ngx-avatar>
+<ngx-avatar *ngIf="!isAuthUser && hasImage(user.id)" [src]="getUserImage(user.id)"></ngx-avatar>
+
+<div class="message-bubble" [class.other]="!isAuthUser">
+
+    <div class="msg-name" *ngIf="isGroupChat">
+        {{ user.firstName }} {{ user.lastName }}
+    </div>
+
+    <div class="msg-content">
+        <ng-container *ngIf="msg.type === 'TEXT'">
+            {{ msg.content }}
+        </ng-container>
+        <ng-container *ngIf="msg.type === 'IMAGE'">
+            <span style="display: inline-block; max-width: 100%; cursor: pointer"
+                  #imgContainer
+                  [style.width.px]="dimensions.width"
+                  [style.height.px]="estimateImageHeight(imgContainer)"
+                  (click)="showImageFullscreen()">
+                <img *ngIf="!!getImage()" class="msg-image" [src]="getImage()">
+                <span *ngIf="!getImage()" class="msg-image-placeholder">
+                    <mat-icon class="icon-huge">close</mat-icon>
+                    Image could not be loaded
+                </span>
+            </span>
+        </ng-container>
+    </div>
+
+    <div class="msg-date">
+        {{ timestampToDateStr(msg.timestamp) }}
+    </div>
+
+</div>
+
+<ngx-avatar *ngIf="isAuthUser && !hasImage(user.id)" [name]="getUserName(user)" size="50"
+            bgColor="#778899"></ngx-avatar>
+<ngx-avatar *ngIf="isAuthUser && hasImage(user.id)" [src]="getUserImage(user.id)"></ngx-avatar>

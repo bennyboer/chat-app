@@ -1,0 +1,21 @@
+:host {
+    display: flex;
+    flex-flow: column;
+    width: 300px;
+    height: inherit;
+
+    & > mat-toolbar {
+        flex: 0 0 auto;
+    }
+
+    & > .chat-list-wrapper {
+        flex: 1 1 auto;
+        position: relative;
+
+        & > ngx-simplebar {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

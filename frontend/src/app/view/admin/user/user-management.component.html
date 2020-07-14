@@ -1,0 +1,41 @@
+<h1 class="user-management-title">
+    <button mat-icon-button [routerLink]="['/admin']">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <mat-icon inline>account_box</mat-icon>
+    User management
+
+    <mat-form-field class="search-field">
+        <span matPrefix><mat-icon inline>search</mat-icon>&nbsp;</span>
+        <input matInput #searchField placeholder="Search..." ngModel (ngModelChange)="onSearchValueUpdate($event)">
+        <button mat-button
+                *ngIf="!!searchField.value && searchField.value.length > 0"
+                matSuffix
+                mat-icon-button
+                (click)="searchField.value = ''; onSearchValueUpdate('')">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</h1>
+
+<div class="user-management-content">
+    <ngx-simplebar style="position: absolute; width: 100%; height: 100%;">
+        <ul class="user-list">
+            <li *ngFor="let user of users">
+                <button mat-button [routerLink]="[user.id]">
+                <span class="user-item">
+                <ngx-avatar *ngIf="!hasImage(user)" [name]="user.firstName + ' ' + user.lastName" size="50"
+                            bgColor="#778899"></ngx-avatar>
+                <ngx-avatar *ngIf="hasImage(user)" [src]="getUserImage(user)" size="50"></ngx-avatar>
+                    {{ user.firstName }} {{ user.lastName }}
+                </span>
+                </button>
+            </li>
+            <li>
+                <button mat-icon-button mat-raised-button [routerLink]="['create']">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </li>
+        </ul>
+    </ngx-simplebar>
+</div>

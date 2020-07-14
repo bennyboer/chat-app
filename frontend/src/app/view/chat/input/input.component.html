@@ -1,0 +1,21 @@
+<form class="input-form"
+      #form="ngForm"
+      (ngSubmit)="onSubmit(input)"
+      (dragover)="onDragOver($event)"
+      (dragexit)="onDragExit($event)"
+      (drop)="onDrop($event)">
+
+    <div class="input-layout">
+
+        <input class="chat-input-field" #input placeholder="Type in something..." name="value" ngModel>
+        <input style="display: none;" #fileInput type="file" name="file" accept="image/*"/>
+        <button mat-icon-button (click)="onImageUpload(fileInput)" type="button">
+            <mat-icon>insert_photo</mat-icon>
+        </button>
+        <button mat-icon-button [disabled]="input.value.length === 0" type="submit">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+
+    </div>
+
+</form>

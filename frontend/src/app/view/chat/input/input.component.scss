@@ -1,0 +1,42 @@
+:host {
+    display: block;
+
+    &.drag-over {
+        .input-layout {
+            background-color: rgba(#33cc99, 0.2);
+        }
+    }
+}
+
+.input-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.chat-input-field {
+    font-size: 1.3em;
+    width: 100%;
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    margin: 0 0.5em 1.0em 0.5em;
+    padding: 1.0em 0.5em 0.5em 0.5em;
+}
+
+@mixin input-component-theme($theme) {
+    $background: map-get($theme, background);
+    $primary: map-get($theme, primary);
+
+    .input-layout {
+        background-color: mat-color($background, card);
+    }
+
+    .chat-input-field {
+        color: mat-color($background, contrast);
+        border-color: rgba(mat-color($primary, main), 0.2);
+    }
+
+}

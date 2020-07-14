@@ -1,0 +1,58 @@
+:host {
+    display: block;
+}
+
+.placeholder {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.resource-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.resource-item {
+    display: inline-flex;
+    border-radius: 2px;
+    padding: 0.5em;
+    margin: 0.5em;
+
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.resource-name {
+    text-align: center;
+    padding-top: 0.5em;
+}
+
+.actions {
+    text-align: center;
+}
+
+.resource-preview {
+    width: 150px;
+    height: 150px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    & > img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@mixin user-resources-theme($theme) {
+    $background: map-get($theme, background);
+
+    .resource-item {
+        background-color: rgba(mat-color($background, contrast), 0.05);
+    }
+}

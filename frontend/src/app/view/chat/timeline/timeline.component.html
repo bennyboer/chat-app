@@ -1,0 +1,53 @@
+<mat-toolbar class="chat-toolbar">
+    <span *ngIf="!!chat" class="chat-label" (click)="onChatLabelClicked($event)">
+        <span class="chat-avatar">
+            <ngx-avatar *ngIf="!chatImage" [name]="chat.name" size="50" bgColor="#778899"></ngx-avatar>
+            <ngx-avatar *ngIf="!!chatImage" [src]="chatImage" size="50"></ngx-avatar>
+        </span>
+        <span>{{ chatName }}</span>
+    </span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button (click)="onDelete()" [disabled]="!chat || isLoading">
+        <mat-icon>delete</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div *ngIf="showPlaceholder" class="timeline-placeholder">
+    <span class="img-container">
+        <img src="assets/shrug.png" width="350" alt="no messages placeholder">
+    </span>
+    <span class="notice">
+        Looks like you have no chats yet!
+    </span>
+    <div>
+        <button mat-flat-button (click)="onCreateChat()">Create a new chat</button>
+    </div>
+</div>
+
+<div [style.display]="showPlaceholder ? 'none' : 'flex'" class="timeline-container">
+
+    <div class="timeline">
+        <div class="scroll-wrapper">
+            <ngx-simplebar #parentScroll>
+                <virtual-scroller #scroll
+                                  [items]="messages"
+                                  [enableUnequalChildrenSizes]="true"
+                                  [parentScroll]="parentScroll.elRef.nativeElement.getElementsByClassName('simplebar-content-wrapper')[0]"
+                                  (vsStart)="fetchMore($event)">
+                    <ng-container *ngFor="let msg of scroll.viewPortItems">
+                        <app-message-component *ngIf="!!getUser(msg.authorId)"
+                                               [msg]="msg"
+                                               [user]="getUser(msg.authorId)"
+                                               [isAuthUser]="isAuthUser(msg.authorId)"
+                                               [isGroupChat]="isGroupChat()"></app-message-component>
+                    </ng-container>
+                </virtual-scroller>
+            </ngx-simplebar>
+        </div>
+    </div>
+
+    <div class="input-container">
+        <app-input-component [chatId]="chatId"></app-input-component>
+    </div>
+
+</div>

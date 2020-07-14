@@ -1,0 +1,25 @@
+<mat-toolbar>
+    <span>Your Chats</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button (click)="onAddChat()">
+        <mat-icon>add</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div class="chat-list-wrapper">
+    <ngx-simplebar>
+        <mat-nav-list class="user-nav">
+            <ng-container *ngFor="let chat of chats">
+
+                <ng-container *ngIf="isPrivateChat(chat)">
+                    <app-private-item-component [chat]="chat"></app-private-item-component>
+                </ng-container>
+
+                <ng-container *ngIf="isGroupChat(chat)">
+                    <app-group-item-component [chat]="chat"></app-group-item-component>
+                </ng-container>
+
+            </ng-container>
+        </mat-nav-list>
+    </ngx-simplebar>
+</div>

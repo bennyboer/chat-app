@@ -1,0 +1,40 @@
+<div class="menu-container">
+
+    <div class="top-nav">
+
+        <div class="avatar-container">
+            <ngx-avatar *ngIf="!userImage" [name]="userName" size="100" bgColor="#33cc99"></ngx-avatar>
+            <ngx-avatar *ngIf="!!userImage" [src]="userImage" size="100"></ngx-avatar>
+        </div>
+
+        <div class="user-name-container">
+            {{ userName }}
+        </div>
+
+    </div>
+
+    <div class="middle-nav">
+
+        <app-navigation-component></app-navigation-component>
+
+    </div>
+
+    <div class="bottom-nav">
+
+        <div>
+            <mat-slide-toggle mat-list-icon
+                [checked]="isDarkMode"
+                (change)="onThemeChange($event)">
+                <mat-icon class="icon-big">nights_stay</mat-icon>
+            </mat-slide-toggle>
+        </div>
+
+        <div class="logout-container">
+            <button mat-icon-button (click)="onLogout()">
+                <mat-icon class="icon-huge">power_settings_new</mat-icon>
+            </button>
+        </div>
+
+    </div>
+
+</div>

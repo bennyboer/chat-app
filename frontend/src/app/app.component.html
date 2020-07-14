@@ -1,0 +1,19 @@
+<main class="mat-app-background">
+
+    <mat-drawer-container [hasBackdrop]="screenWidth <= 840" autosize>
+
+        <mat-drawer [mode]="screenWidth > 840 ? 'side' : 'over'"
+                    [opened]="screenWidth > 840 && isLoggedIn()"
+                    [disableClose]="screenWidth > 840">
+            <app-menu-component></app-menu-component>
+        </mat-drawer>
+
+        <div [style.display]="screenWidth > 840 || !isLoggedIn() ? 'none' : 'block'">
+            <app-navigation-button-component></app-navigation-button-component>
+        </div>
+
+        <router-outlet></router-outlet>
+
+    </mat-drawer-container>
+
+</main>

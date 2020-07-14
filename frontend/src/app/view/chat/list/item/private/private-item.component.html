@@ -1,0 +1,7 @@
+<a mat-list-item [routerLink]="['/', 'chat', chat.id]">
+    <span class="chat-avatar">
+        <ngx-avatar *ngIf="!chatImage" [name]="chat.name" size="50" bgColor="#778899"></ngx-avatar>
+        <ngx-avatar *ngIf="!!chatImage" [src]="chatImage" size="50"></ngx-avatar>
+    </span>
+    {{ chatName }}
+</a>

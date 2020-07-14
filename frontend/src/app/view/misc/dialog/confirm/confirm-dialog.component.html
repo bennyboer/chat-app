@@ -1,0 +1,13 @@
+<h2>{{ data.message }}</h2>
+
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center">
+
+    <button mat-icon-button mat-raised-button (click)="onNo()">
+        <mat-icon>clear</mat-icon>
+    </button>
+
+    <button mat-icon-button mat-raised-button color="primary" (click)="onYes()">
+        <mat-icon>done</mat-icon>
+    </button>
+
+</div>

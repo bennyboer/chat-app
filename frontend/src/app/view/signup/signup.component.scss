@@ -1,0 +1,15 @@
+:host {
+    display: flex;
+    width: inherit;
+    height: inherit;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.0em 0;
+}
